@@ -9,8 +9,9 @@ import ua.lviv.iot.equipment.model.SortType;
 
 public class FilmMakingManagerUtils {
 
-  private static final CostumeSorterByYearOfUse COSTUME_SORTER_BY_YEAR_OF_USE
-        = new CostumeSorterByYearOfUse();
+  private static final FilmMakingManagerUtils FILM_MAKING_MANAGER_UTILS = new FilmMakingManagerUtils();
+
+  private static final CostumeSorterByYearOfUse COSTUME_SORTER_BY_YEAR_OF_USE = new CostumeSorterByYearOfUse();
 
   public static void sortCostumesByYearOfUse(List<Costume> costumes, SortType type) {
     costumes.sort(type == SortType.ASC ? COSTUME_SORTER_BY_YEAR_OF_USE
@@ -18,9 +19,9 @@ public class FilmMakingManagerUtils {
   }
 
   public static void sortCostumesByProductionYear(List<Costume> costumes, SortType type) {
-    FilmMakingManagerUtils utils = new FilmMakingManagerUtils();
-    costumes.sort(type == SortType.ASC ? utils.new CostumeSorterByProductionYear()
-        : utils.new CostumeSorterByProductionYear().reversed());
+    costumes
+        .sort(type == SortType.ASC ? FILM_MAKING_MANAGER_UTILS.new CostumeSorterByProductionYear()
+            : FILM_MAKING_MANAGER_UTILS.new CostumeSorterByProductionYear().reversed());
   }
 
   // anonymous inner class
@@ -38,9 +39,8 @@ public class FilmMakingManagerUtils {
 
   public static void sortEquipmentByWarrantyPeriod(List<AbstarctShootingEquipment> equipment,
       SortType type) {
-    Comparator<AbstarctShootingEquipment> comparator = (firstItem,
-        secondItem) -> firstItem.getWarrantyWorkPeriodInMonths()
-            - secondItem.getWarrantyWorkPeriodInMonths();
+    Comparator<AbstarctShootingEquipment> comparator = Comparator
+        .comparing(AbstarctShootingEquipment::getWarrantyWorkPeriodInMonths);
     equipment.sort(type == SortType.ASC ? comparator : comparator.reversed());
   }
 

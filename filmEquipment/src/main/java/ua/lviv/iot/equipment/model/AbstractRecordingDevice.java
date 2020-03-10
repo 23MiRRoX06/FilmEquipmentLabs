@@ -10,6 +10,28 @@ public abstract class AbstractRecordingDevice extends AbstarctShootingEquipment 
     super(warrantyWorkPeriodInMonths, weightInGrams);
   }
 
+  public AbstractRecordingDevice(int productionYear, int warrantyWorkPeriodInMonths,
+      String factoryManufacturer, String countryManufacturer, String modelName, String material,
+      double weightInGrams, String color, boolean isWaterproof, int batteryLifeInHours,
+      String recordFormat) {
+    super(productionYear, warrantyWorkPeriodInMonths, factoryManufacturer, countryManufacturer,
+        modelName, material, weightInGrams, color);
+    this.setWaterproof(isWaterproof);
+    this.setBatteryLifeInHours(batteryLifeInHours);
+    this.setRecordFormat(recordFormat);
+  }
+
+  @Override
+  public String getHeaders() {
+    return super.getHeaders() + "," + "isWaterproof,batteryLifeInHours,recordFormat";
+
+  }
+
+  @Override
+  public String toCSV() {
+    return super.toCSV() + "," + isWaterproof + "," + batteryLifeInHours + "," + recordFormat;
+  }
+
   public boolean isWaterproof() {
     return isWaterproof;
   }
