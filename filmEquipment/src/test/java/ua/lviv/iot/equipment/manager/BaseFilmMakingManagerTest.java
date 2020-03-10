@@ -12,7 +12,7 @@ import ua.lviv.iot.equipment.model.Costume;
 public abstract class BaseFilmMakingManagerTest {
 
   protected List<Costume> costumes;
-  protected List<AbstarctShootingEquipment> cameras;
+  protected List<AbstarctShootingEquipment> equipment;
 
   @BeforeEach
   public void createCostumes() {
@@ -24,9 +24,9 @@ public abstract class BaseFilmMakingManagerTest {
 
   @BeforeEach
   public void createEquipment() {
-    cameras = new LinkedList<AbstarctShootingEquipment>();
-    cameras.add(new Camera(6, 232.6));
-    cameras.add(new Camera(12, 1645));
-    cameras.add(new Camera(1, 567));
+    equipment = new LinkedList<AbstarctShootingEquipment>();
+    equipment.add(new Camera(6, 232.6));
+    equipment.add(new Camera(12, 1645));
+    equipment.add(new Camera(1, 567));
   }
 }

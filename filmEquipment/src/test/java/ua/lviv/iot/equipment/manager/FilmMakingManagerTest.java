@@ -17,7 +17,7 @@ class FilmMakingManagerTest extends BaseFilmMakingManagerTest {
   @BeforeEach
   public void setUp() {
     filmMakingManager = new FilmMakingManager();
-    filmMakingManager.createEquipment(cameras);
+    filmMakingManager.createEquipment(equipment);
     filmMakingManager.createCostumes(costumes);
   }
 

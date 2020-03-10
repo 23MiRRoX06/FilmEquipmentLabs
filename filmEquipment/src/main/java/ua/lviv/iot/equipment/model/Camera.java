@@ -6,10 +6,38 @@ public class Camera extends AbstractRecordingDevice {
   private int videoFrapsPerSecond;
   private int videoRecordingSpeedInMbps;
   private int viewingAngleInDegrees;
-  private boolean hasLcdMonito;
+  private boolean hasLcdMonitor;
 
   public Camera(int warrantyWorkPeriodInMonths, double weightInGrams) {
     super(warrantyWorkPeriodInMonths, weightInGrams);
+  }
+
+  public Camera(int productionYear, int warrantyWorkPeriodInMonths, String factoryManufacturer,
+      String countryManufacturer, String modelName, String material, double weightInGrams,
+      String color, boolean isWaterproof, int batteryLifeInHours, String recordFormat,
+      String videoResolutionStandart, int videoFrapsPerSecond, int videoRecordingSpeedInMbps,
+      int viewingAngleInDegrees, boolean hasLcdMonitor) {
+    super(productionYear, warrantyWorkPeriodInMonths, factoryManufacturer, countryManufacturer,
+        modelName, material, weightInGrams, color, isWaterproof, batteryLifeInHours, recordFormat);
+    this.setVideoResolutionStandart(videoResolutionStandart);
+    this.setVideoFrapsPerSecond(videoFrapsPerSecond);
+    this.setVideoRecordingSpeedInMbps(videoRecordingSpeedInMbps);
+    this.setViewingAngleInDegrees(viewingAngleInDegrees);
+    this.setHasLcdMonitor(hasLcdMonitor);
+  }
+
+  @Override
+  public String getHeaders() {
+    return super.getHeaders() + ","
+        + "videoResolutionStandart,videoFrapsPerSecond,"
+        + "videoRecordingSpeedInMbps,viewingAngleInDegrees,hasLcdMonitor";
+
+  }
+
+  @Override
+  public String toCSV() {
+    return super.toCSV() + "," + videoResolutionStandart + "," + videoFrapsPerSecond + ","
+        + videoRecordingSpeedInMbps + "," + viewingAngleInDegrees + "," + hasLcdMonitor;
   }
 
   public String getVideoResolutionStandart() {
@@ -44,11 +72,11 @@ public class Camera extends AbstractRecordingDevice {
     this.viewingAngleInDegrees = viewingAngleInDegrees;
   }
 
-  public boolean isHasLcdMonito() {
-    return hasLcdMonito;
+  public boolean isHasLcdMonitor() {
+    return hasLcdMonitor;
   }
 
-  public void setHasLcdMonito(boolean hasLcdMonito) {
-    this.hasLcdMonito = hasLcdMonito;
+  public void setHasLcdMonitor(boolean hasLcdMonitor) {
+    this.hasLcdMonitor = hasLcdMonitor;
   }
 }

@@ -6,21 +6,38 @@ public class Costume extends AbstarctShootingEquipment implements Comparable<Cos
   private String category;
   private String sizeEur;
   private Quality fabricQuality;
-  private String components;
 
   @Override
   public int compareTo(Costume anotherCostume) {
-    if (this.equals(anotherCostume)) {
-      return 0;
-    } else {
-      return this.getProductionYear() - anotherCostume.getProductionYear();
-    }
+    return this.getProductionYear() - anotherCostume.getProductionYear();
   }
 
   public Costume(int productionYear, int yearOfUse, String category) {
     super(productionYear);
     this.setYearOfUse(yearOfUse);
     this.setCategory(category);
+  }
+
+  public Costume(int productionYear, int warrantyWorkPeriodInMonths, String factoryManufacturer,
+      String countryManufacturer, String modelName, String material, double weightInGrams,
+      String color, int yearOfUse, String category, String sizeEur, Quality fabricQuality) {
+    super(productionYear, warrantyWorkPeriodInMonths, factoryManufacturer, countryManufacturer,
+        modelName, material, weightInGrams, color);
+    this.setYearOfUse(yearOfUse);
+    this.setCategory(category);
+    this.setSizeEur(sizeEur);
+    this.setFabricQuality(fabricQuality);
+  }
+
+  @Override
+  public String getHeaders() {
+    return super.getHeaders() + "," + "yearOfUse,category,sizeEur,fabricQuality";
+
+  }
+
+  @Override
+  public String toCSV() {
+    return super.toCSV() + "," + yearOfUse + "," + category + "," + sizeEur + "," + fabricQuality;
   }
 
   public Costume(int warrantyWorkPeriodInMonths, double weightInGrams) {
@@ -41,14 +58,6 @@ public class Costume extends AbstarctShootingEquipment implements Comparable<Cos
 
   public void setFabricQuality(Quality fabricQuality) {
     this.fabricQuality = fabricQuality;
-  }
-
-  public String getComponents() {
-    return components;
-  }
-
-  public void setComponents(String components) {
-    this.components = components;
   }
 
   public int getYearOfUse() {

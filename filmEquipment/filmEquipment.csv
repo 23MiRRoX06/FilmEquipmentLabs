@@ -1,0 +1,6 @@
+productionYear,warrantyWorkPeriodInMonths,factoryManufacturer,countryManufacturer,modelName,material,weightInGrams,color,isWaterproof,batteryLifeInHours,recordFormat,videoResolutionStandart,videoFrapsPerSecond,videoRecordingSpeedInMbps,viewingAngleInDegrees,hasLcdMonitor
+1998,12,Canon,China,RS-340,plastic,216.4,red,true,8,mp4,4K,120,100,55,true
+productionYear,warrantyWorkPeriodInMonths,factoryManufacturer,countryManufacturer,modelName,material,weightInGrams,color,yearOfUse,category,sizeEur,fabricQuality
+2007,10,CheapCostumes,Ukraine,WWII,cotton,345.1,black,1945,Historical,M,HIGH
+productionYear,warrantyWorkPeriodInMonths,factoryManufacturer,countryManufacturer,modelName,material,weightInGrams,color,isWaterproof,batteryLifeInHours,recordFormat,frequencyRangeInHz,dynamicRangeInDb,isWindproof,mountType
+2010,24,Blue,China,MV-240,material,1250.0,gray,false,8,MP3,20000,47,true,On-stand

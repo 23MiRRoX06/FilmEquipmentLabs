@@ -16,8 +16,32 @@ public abstract class AbstarctShootingEquipment {
   }
 
   public AbstarctShootingEquipment(int warrantyWorkPeriodInMonths, double weightInGrams) {
-    this.warrantyWorkPeriodInMonths = warrantyWorkPeriodInMonths;
-    this.weightInGrams = weightInGrams;
+    this.setWarrantyWorkPeriodInMonths(warrantyWorkPeriodInMonths);
+    this.setWeightInGrams(weightInGrams);
+  }
+
+  public AbstarctShootingEquipment(int productionYear, int warrantyWorkPeriodInMonths,
+      String factoryManufacturer, String countryManufacturer, String modelName, String material,
+      double weightInGrams, String color) {
+    this.setProductionYear(productionYear);
+    this.setWarrantyWorkPeriodInMonths(warrantyWorkPeriodInMonths);
+    this.setFactoryManufacturer(factoryManufacturer);
+    this.setCountryManufacturer(countryManufacturer);
+    this.setModelName(modelName);
+    this.setMaterial(material);
+    this.setWeightInGrams(weightInGrams);
+    this.setColor(color);
+  }
+
+  public String getHeaders() {
+    return "productionYear,warrantyWorkPeriodInMonths,factoryManufacturer,"
+        + "countryManufacturer,modelName,material,weightInGrams,color";
+  }
+
+  public String toCSV() {
+    return productionYear + "," + warrantyWorkPeriodInMonths + "," + factoryManufacturer + ","
+        + countryManufacturer + "," + modelName + "," + material + "," + weightInGrams + ","
+        + color;
   }
 
   public String getFactoryManufacturer() {
@@ -56,8 +80,8 @@ public abstract class AbstarctShootingEquipment {
     return weightInGrams;
   }
 
-  public void setWeightInGrams(int weightInGrams) {
-    this.weightInGrams = weightInGrams;
+  public void setWeightInGrams(double weightInGrams2) {
+    this.weightInGrams = weightInGrams2;
   }
 
   public String getColor() {

@@ -46,37 +46,37 @@ class FilmMakingManagerUtilsTest extends BaseFilmMakingManagerTest {
 
   @Test
   void testSortingEquipmentByWarrantyPeriodAscending() {
-    FilmMakingManagerUtils.sortEquipmentByWarrantyPeriod(cameras, SortType.ASC);
-    for (int itemIndex = 0; itemIndex < cameras.size() - 1; itemIndex++) {
-      assertTrue(cameras.get(itemIndex).getWarrantyWorkPeriodInMonths() < cameras.get(++itemIndex)
-          .getWarrantyWorkPeriodInMonths());
+    FilmMakingManagerUtils.sortEquipmentByWarrantyPeriod(equipment, SortType.ASC);
+    for (int itemIndex = 0; itemIndex < equipment.size() - 1; itemIndex++) {
+      assertTrue(equipment.get(itemIndex).getWarrantyWorkPeriodInMonths() < equipment
+          .get(++itemIndex).getWarrantyWorkPeriodInMonths());
     }
   }
 
   @Test
   void testSortingEquipmentByWarrantyPeriodDescending() {
-    FilmMakingManagerUtils.sortEquipmentByWarrantyPeriod(cameras, SortType.DESC);
-    for (int itemIndex = 0; itemIndex < cameras.size() - 1; itemIndex++) {
-      assertTrue(cameras.get(itemIndex).getWarrantyWorkPeriodInMonths() > cameras.get(++itemIndex)
-          .getWarrantyWorkPeriodInMonths());
+    FilmMakingManagerUtils.sortEquipmentByWarrantyPeriod(equipment, SortType.DESC);
+    for (int itemIndex = 0; itemIndex < equipment.size() - 1; itemIndex++) {
+      assertTrue(equipment.get(itemIndex).getWarrantyWorkPeriodInMonths() > equipment
+          .get(++itemIndex).getWarrantyWorkPeriodInMonths());
     }
   }
 
   @Test
   void testSortingEquipmentByWeightAscending() {
-    FilmMakingManagerUtils.sortEquipmentByWeight(cameras, SortType.ASC);
-    for (int itemIndex = 0; itemIndex < cameras.size() - 1; itemIndex++) {
-      assertTrue(
-          cameras.get(itemIndex).getWeightInGrams() < cameras.get(++itemIndex).getWeightInGrams());
+    FilmMakingManagerUtils.sortEquipmentByWeight(equipment, SortType.ASC);
+    for (int itemIndex = 0; itemIndex < equipment.size() - 1; itemIndex++) {
+      assertTrue(equipment.get(itemIndex).getWeightInGrams() < equipment.get(++itemIndex)
+          .getWeightInGrams());
     }
   }
 
   @Test
   void testSortingEquipmentByWeightDescending() {
-    FilmMakingManagerUtils.sortEquipmentByWeight(cameras, SortType.DESC);
-    for (int itemIndex = 0; itemIndex < cameras.size() - 1; itemIndex++) {
-      assertTrue(
-          cameras.get(itemIndex).getWeightInGrams() > cameras.get(++itemIndex).getWeightInGrams());
+    FilmMakingManagerUtils.sortEquipmentByWeight(equipment, SortType.DESC);
+    for (int itemIndex = 0; itemIndex < equipment.size() - 1; itemIndex++) {
+      assertTrue(equipment.get(itemIndex).getWeightInGrams() > equipment.get(++itemIndex)
+          .getWeightInGrams());
     }
   }
 }
