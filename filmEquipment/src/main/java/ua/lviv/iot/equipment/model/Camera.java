@@ -7,6 +7,7 @@ public class Camera extends AbstractRecordingDevice {
   private int videoRecordingSpeedInMbps;
   private int viewingAngleInDegrees;
   private boolean hasLcdMonitor;
+  private Integer id;
 
   public Camera(int warrantyWorkPeriodInMonths, double weightInGrams) {
     super(warrantyWorkPeriodInMonths, weightInGrams);
@@ -26,10 +27,13 @@ public class Camera extends AbstractRecordingDevice {
     this.setHasLcdMonitor(hasLcdMonitor);
   }
 
+  public Camera() {
+    super();
+  }
+
   @Override
   public String getHeaders() {
-    return super.getHeaders() + ","
-        + "videoResolutionStandart,videoFrapsPerSecond,"
+    return super.getHeaders() + "," + "videoResolutionStandart,videoFrapsPerSecond,"
         + "videoRecordingSpeedInMbps,viewingAngleInDegrees,hasLcdMonitor";
 
   }
@@ -79,4 +83,13 @@ public class Camera extends AbstractRecordingDevice {
   public void setHasLcdMonitor(boolean hasLcdMonitor) {
     this.hasLcdMonitor = hasLcdMonitor;
   }
+
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
 }
