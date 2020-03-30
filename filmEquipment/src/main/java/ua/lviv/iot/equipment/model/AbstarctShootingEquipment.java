@@ -33,6 +33,10 @@ public abstract class AbstarctShootingEquipment {
     this.setColor(color);
   }
 
+  public AbstarctShootingEquipment() {
+
+  }
+
   public String getHeaders() {
     return "productionYear,warrantyWorkPeriodInMonths,factoryManufacturer,"
         + "countryManufacturer,modelName,material,weightInGrams,color";

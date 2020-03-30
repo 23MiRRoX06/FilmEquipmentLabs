@@ -16,8 +16,9 @@ public class FilmMakingWriter {
       csvWriter.write("\n");
       csvWriter.write(item.toCSV());
       csvWriter.write("\n");
-      csvWriter.flush();
-    }
+
+    }   
+    csvWriter.flush();
   }
 
   public void setCsvWriter(Writer csvWriter) {

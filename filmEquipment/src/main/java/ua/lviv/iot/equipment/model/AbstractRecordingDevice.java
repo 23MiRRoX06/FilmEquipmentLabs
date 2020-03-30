@@ -21,6 +21,10 @@ public abstract class AbstractRecordingDevice extends AbstarctShootingEquipment 
     this.setRecordFormat(recordFormat);
   }
 
+  public AbstractRecordingDevice() {
+    super();
+  }
+
   @Override
   public String getHeaders() {
     return super.getHeaders() + "," + "isWaterproof,batteryLifeInHours,recordFormat";
