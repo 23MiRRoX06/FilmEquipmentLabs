@@ -1,13 +1,37 @@
 package ua.lviv.iot.equipment.model;
 
+import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@Entity
 public class Camera extends AbstractRecordingDevice {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Integer id;
+
+  @OneToMany(mappedBy = "cameraTakenBy", fetch = FetchType.EAGER)
+  @JsonIgnoreProperties("cameraTakenBy")
+  private Set<Photo> photosTaken;
+
+  @ManyToMany(mappedBy = "cameras", fetch = FetchType.EAGER)
+  @JsonIgnoreProperties("cameras")
+  private Set<Store> storesIsSoldBy;
 
   private String videoResolutionStandart;
   private int videoFrapsPerSecond;
   private int videoRecordingSpeedInMbps;
   private int viewingAngleInDegrees;
   private boolean hasLcdMonitor;
-  private Integer id;
 
   public Camera(int warrantyWorkPeriodInMonths, double weightInGrams) {
     super(warrantyWorkPeriodInMonths, weightInGrams);
@@ -28,7 +52,7 @@ public class Camera extends AbstractRecordingDevice {
   }
 
   public Camera() {
-    super();
+
   }
 
   @Override
@@ -90,6 +114,22 @@ public class Camera extends AbstractRecordingDevice {
 
   public void setId(Integer id) {
     this.id = id;
+  }
+
+  public Set<Photo> getPhotosTaken() {
+    return photosTaken;
+  }
+
+  public void setPhotosTaken(Set<Photo> photosTaken) {
+    this.photosTaken = photosTaken;
+  }
+
+  public Set<Store> getStoresIsSoldBy() {
+    return storesIsSoldBy;
+  }
+
+  public void setStoresIsSoldBy(Set<Store> storesIsSoldBy) {
+    this.storesIsSoldBy = storesIsSoldBy;
   }
 
 }
